@@ -1,0 +1,4 @@
+# Ignore Django migrations but track db.sqlite3
+*/migrations/*.py
+*/migrations/*.pyc
+!db.sqlite3

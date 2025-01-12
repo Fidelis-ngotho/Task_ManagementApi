@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--imvw0=3q)0cuka5c=z=q$xz_trx1b23^##loh6$f5fkh3bbfe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [ 'Task_management_api.up.railway.app' ]
+ALLOWED_HOSTS = [ ]
 
 
 # Application definition
@@ -81,16 +81,16 @@ WSGI_APPLICATION = 'Task_management_api.wsgi.application'
 
 import os
 
+
+# Default database for local development (SQLite)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT', '3306'),  # Default MySQL port
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
 
 
 # Password validation
